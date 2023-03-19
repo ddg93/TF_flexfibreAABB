@@ -11,7 +11,10 @@ Motivation for this effort comes from its application in the field of experiment
 
 ## Roadmap:
 ### 1) Development of a Neural Network that detects flexible fibres 
-At first, we focus on developing a simple Neural Network to measure the Axes-Aligned Bounding Box (i.e. the minimum enclosing rectangle that is aligned with the image edges) containing the fibre for a single view. To do so, we train and test on virtual images, generated using Blender. True values are calculated detecting the fibres with the OpenCV implementation of the [Canny method](https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html). 
+At first, we focus on developing a simple Neural Network that will take as input a single view of the fibre and will regress its Axes-Aligned Bounding Box (i.e. the minimum enclosing rectangle that is aligned with the image edges). We train and test on virtual images, generated using Blender, some of them displayed in the panels of Figure 2. True values of the AABBs are calculated detecting the fibres with the OpenCV implementation of the [Canny method](https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html), plotted in cyan in the panels of Figure 2.
+
+####Figure 2: Visualization of the Training data set, made of virtual images of flexible fibres with their AABB highlighted in cyan.
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/AABB_flex_true.jpg?raw=true)
 
 Build, train and test the model on [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/Fibre_AABB_detection.ipynb).
 
