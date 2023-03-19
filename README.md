@@ -5,6 +5,6 @@ Motivation for this effort comes from its application in the field of experiment
 
 ## Roadmap:
 ### 1) Development of a Neural Network that detects flexible fibres 
-At first, we focus on developing a simple Neural Network to measure the Axes-Aligned Bounding Box (i.e. the minimum enclosing rectangle that is aligned with the image edges) containing the fibre. To do so, we train and test on virtual images, generated using Blender.
+At first, we focus on developing a simple Neural Network to measure the Axes-Aligned Bounding Box (i.e. the minimum enclosing rectangle that is aligned with the image edges) containing the fibre for a single view. To do so, we train and test on virtual images, generated using Blender.
 
 Build, train and test the model on [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/Fibre_AABB_detection.ipynb).
