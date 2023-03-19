@@ -1,6 +1,6 @@
 # Welcome to the  TF_flexfibreAABB repository
 
-## This GitHub projec aims at building a Neural Network that reconstructs the three-dimensional conformation of a flexible fibre in an epipolar geometry. 
+## This GitHub projec aims at building a Neural Network that reconstructs the three-dimensional conformation of a flexible cylinders (fibres and disks) in an epipolar geometry. 
 
 The experimental observation of the dynamics of flexible objects suspended in flows implies the deployment of multiple cameras in order to reconstruct their three-dimensional conformation. The most simple scenario is that of a single particle in an epipolar geometry, as rendered in Figure 1.
 
