@@ -1,22 +1,25 @@
 # Welcome to the  TF_flexfibreAABB repository
 
-## This GitHub projec aims at building a Neural Network that reconstructs the three-dimensional conformation of a flexible cylinders (fibres and disks) in an epipolar geometry. 
+## This GitHub projec aims at exploiting Neural Networks to experimentally observe and measure small particles suspended in a viscous shear flow.
 
-The experimental observation of the dynamics of flexible objects suspended in flows implies the deployment of multiple cameras in order to reconstruct their three-dimensional conformation. The most simple scenario is that of a single particle in an epipolar geometry, as rendered in Figure 1.
+As detailed in [our previous work](https://github.com/ddg93/JOposeAABB), we are observing three-dimensional rotational dynamics of small axisymmetrical objects suspended in a viscous shear flow by two perpendicular cameras, i.e. in an Epipolar geometry, displayed in Figure 1.
 
 #### Figure 1: Representation of the epipolar geometry created in Blender to prepare the virtual images of the flexible fibres
-![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/epipolar_flex.jpg?raw=true)
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/blender_setup.jpg?raw=true)
 
-Motivation for this effort comes from its application in the field of experimental fluid mechanics, as we are currently building a simple experiment to observe the dynamics of flexible particles (fibres and disks) suspended in viscous shear flows (see [our previous project with rigid ellipsoids and cylinders](https://github.com/ddg93/JOposeAABB) for more details and a geometrical approach to the regression of their three-dimensional orientation).
+This kind of measurements is very important as it allows a direct comparison between theory and experiments, ultimately leading to more accurate modelling of particle-dispersed turbulent flows.
+In our previous project with [rigid ellipsoids and cylinders](https://github.com/ddg93/JOposeAABB), we could exploit the geometry of the particles to estimate their three-dimensional orientation by a simple multi-variate regression.
 
-## Roadmap:
-### 1) Development of a Neural Network that detects flexible fibres 
-At first, we focus on developing a simple Neural Network that will take as input a single view of the fibre and will regress its Axes-Aligned Bounding Box (i.e. the minimum enclosing rectangle that is aligned with the image edges). We train and test on virtual images, generated using Blender, some of them displayed in the panels of Figure 2. True values of the AABBs are calculated detecting the fibres with the OpenCV implementation of the [Canny method](https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html), plotted in cyan in the panels of Figure 2.
+In an effort to observe particles with different shapes such as rings and even fore-aft asymmetric objects, we find it convenient to deploy a Convolutional Neural Networks to directly estimate their orientation from the recordings of the experiments.
 
-#### Figure 2: Visualization of the Training data set, made of virtual images of flexible fibres with their AABB highlighted in cyan.
-![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/AABB_flex_true.jpg?raw=true)
+The CNNs are trained over a synthetic data set, generated in Blender rendering images of randomly oriented particles in an epipolar geometry, displayed in Figure 2.
 
-Build, train and test the model on [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/Fibre_AABB_detection.ipynb).
+#### Figure 2: training data set made by side and top renderings of a ring with inner radius 0.5 mm and outer radius 2.5 mm. The three components of the particle orientation vector in the flow (n_1), gradient (n_2) and vorticity (n_3) directions are also reported above each corresponding couple of images ([details about the experimental set-up can be found in our previous work](https://github.com/ddg93/JOposeAABB)).
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/training_dataset.png?raw=true
 
+Having 3D printed the ring whose '.stl' file was imported in Blender to generate the synthetic data set, we use this particle to perform one experiment. Then, a simple Computer Vision method based on the Watershed algorithm is developed in Python+OpenCV to perform the image segmentation and isolate the ring withing each video recording of the experiment.
 
-### 2) To be continued...
+On [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/RegressDISK_multiview.ipynb) you can build, train and test the CNN, and eventually reconstruct the time-evolution of the particle orientation during an actual experiment with the considered ring. The final result is a periodic motion as shown in Figure 3.
+
+#### Figure 3: Time-evolution of the orientation of a ring suspended in a viscous shear flow
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/time_evolution.png?raw=true)
