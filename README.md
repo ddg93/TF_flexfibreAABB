@@ -10,7 +10,7 @@ As detailed in [our previous work](https://github.com/ddg93/JOposeAABB), we are 
 This kind of measurements is very important as it allows a direct comparison between theory and experiments, ultimately leading to more accurate modelling of particle-dispersed turbulent flows.
 In our previous project with [rigid ellipsoids and cylinders](https://github.com/ddg93/JOposeAABB), we could exploit the geometry of the particles to estimate their three-dimensional orientation by a simple multi-variate regression.
 
-In an effort to observe particles with different shapes such as rings and even fore-aft asymmetric objects, we find it convenient to deploy a Convolutional Neural Networks to directly estimate their orientation from the recordings of the experiments.
+In an effort to observe particles with different shapes such as rings and even fore-aft asymmetric objects, we find it convenient to deploy Convolutional Neural Networks to directly estimate their orientation from the video recordings of the experiments.
 
 The CNNs are trained over a synthetic data set, generated in Blender rendering images of randomly oriented particles in an epipolar geometry, displayed in Figure 2.
 
