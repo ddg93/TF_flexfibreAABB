@@ -23,7 +23,7 @@ A simple Computer Vision method based on the Watershed algorithm is developed in
 #### Figure 3: Time-evolution of the orientation of a ring suspended in a viscous shear flow
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/time_evolution.png?raw=true)
 
-### Build, train and test the CCN on  [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/RegressDISK_multiview.ipynb) before reconstructing the time-evolution of the particle orientation during the experiment with the considered ring. 
+### Build, train and test the CCN on  [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/RegressDISK_multiview.ipynb) in order to measure the time-evolution of the particle orientation during the experiment with the considered ring. 
 
 
 
