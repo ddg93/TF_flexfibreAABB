@@ -7,9 +7,11 @@ As detailed in [our previous work](https://github.com/ddg93/JOposeAABB), we are 
 #### Figure 1: Panels (a): realistic rendering of the linear shear cell deployed in our experiments; (b): picture of the experimental setup; (c): sketch of the output given by the dual-camera video-recording system.
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/setupcomplete.jpg?raw=true)
 
-A typical result is shown in the following video recording for a ring, where the axisymmetrical particle is driven by the mean shear in a periodic rotation.
-
-![](https://github.com/ddg93/TF_flexfibreAABB/blob/main/outpy_9_1.gif)
+A typical result is shown in the following Videos 1 and 2 with a ring, where the axisymmetrical particle is driven by the mean shear in a periodic rotation.
+#### Video 1: Top/Above view of a ring rotating in a viscous shear flow.
+![](https://github.com/ddg93/TF_flexfibreAABB/blob/main/top.gif)
+#### Video 2: Side view of a ring rotating in a viscous shear flow.
+![](https://github.com/ddg93/TF_flexfibreAABB/blob/main/side.gif)
 
 A precise measurement of their orientation dynamics is very important, allowing a direct comparison between theory and experiments and, ultimately, leading to a more accurate modelling of particle-dispersed turbulent flows. 
 
