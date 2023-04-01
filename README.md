@@ -4,7 +4,12 @@
 
 As detailed in [our previous work](https://github.com/ddg93/JOposeAABB), we are observing three-dimensional rotational dynamics of small axisymmetrical objects suspended in a viscous shear flow by two perpendicular cameras, i.e. in an Epipolar geometry, displayed in Figure 1.
 
-#### Figure 1: Representation of the epipolar geometry created in Blender to prepare the virtual images of the rings.
+#### Figure 1: Panels (a): realistic rendering of the linear shear cell deployed in our experiments; (b): picture of the experimental setup; (c): sketch of the output given by the dual-camera video-recording system.
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/setupcomplete.jpg?raw=true)
+
+
+
+#### Figure 2: Representation of the epipolar geometry created in Blender to prepare the virtual images of the rings.
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/blender_setup.jpg?raw=true)
 
 This kind of measurements is very important as it allows a direct comparison between theory and experiments, ultimately leading to more accurate modelling of particle-dispersed turbulent flows.
