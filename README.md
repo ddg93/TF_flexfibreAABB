@@ -5,7 +5,7 @@
 As detailed in [our previous work](https://github.com/ddg93/JOposeAABB), we are observing three-dimensional rotational dynamics of small axisymmetrical objects suspended in a viscous shear flow by two perpendicular cameras, i.e. in an Epipolar geometry, displayed in Figure 1.
 
 #### Figure 1: Panels (a): realistic rendering of the linear shear cell deployed in our experiments; (b): picture of the experimental setup; (c): sketch of the output given by the dual-camera video-recording system.
-![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/setupcomplete.jpg | width=100)
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/setupcomplete.jpg?raw=true | width=100)
 
 As shown in the following video recording for a ring, the axisymmetrical particles are driven by the mean shear in a periodic rotation.
 https://github.com/ddg93/TF_flexfibreAABB/blob/main/outpy_9_1.gif
