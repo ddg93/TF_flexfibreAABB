@@ -7,13 +7,14 @@ As detailed in [our previous work](https://github.com/ddg93/JOposeAABB), we are 
 #### Figure 1: Panels (a): realistic rendering of the linear shear cell deployed in our experiments; (b): picture of the experimental setup; (c): sketch of the output given by the dual-camera video-recording system.
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/setupcomplete.jpg?raw=true)
 
+As shown in the following video recording for a ring, the axisymmetrical particles are driven by the mean shear in a periodic rotation.
+https://github.com/ddg93/TF_flexfibreAABB/blob/main/outpy_9_1.gif
 
+A precise measurement of their orientation dynamics is very important, allowing a direct comparison between theory and experiments and, ultimately, leading to a more accurate modelling of particle-dispersed turbulent flows. 
 
 #### Figure 2: Representation of the epipolar geometry created in Blender to prepare the virtual images of the rings.
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/blender_setup.jpg?raw=true)
 
-This kind of measurements is very important as it allows a direct comparison between theory and experiments, ultimately leading to more accurate modelling of particle-dispersed turbulent flows.
-In our previous project with [rigid ellipsoids and cylinders](https://github.com/ddg93/JOposeAABB), we could exploit the geometry of the particles to estimate their three-dimensional orientation by a simple multi-variate regression.
 
 In an effort to observe particles with different shapes such as rings and even fore-aft asymmetric objects, we find it convenient to deploy Convolutional Neural Networks to directly estimate their orientation from the video recordings of the experiments.
 
