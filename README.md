@@ -21,24 +21,24 @@ The CNNs are trained over a small synthetic data set for each particle, generate
 
 A simple Computer Vision method based on the Watershed algorithm is developed in Python+OpenCV to perform the image segmentation and isolate the ring withing each video recording of the experiment, as visualized in the Video 3.
 ```python
-### 1
+### 1: Original grayscale image. Many small bubbles are trapped in the viscous fluid around the object; 
 img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-### 2
+### 2: First estimate of the separation between the object and the background by thresholding binarization (Otsu's method): colour scale from yellow (high value, object) to purple (low value, background);
 ret, thresh = cv2.threshold(img,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-### 3
+### 3: Noise removal by Dilation: the object is dilated to find the sure background, while the small bubbles are cancelled;
 kernel = np.ones((3,3),np.uint8)
 opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN, kernel,1)           
 sure_bg = cv2.dilate(opening,kernel,iterations=1)
-### 4
+### 4: Distance transformation: each pixel is labelled according to its Euclidean distance from the closest zero (purple, background) pixel;
 dist_transform = cv2.distanceTransform(opening, cv2.DIST_L2, 3) ###size of mask
-### 5
+### 5: Identification of the sure object by thresholding (70 %) on the distance transformation image;
 ret, sure_fg = cv2.threshold(dist_transform,0.7*dist_transform.max(),255,0)
-### 6
+### 6: Identification of the unknown region by subtracting the sure object from the sure background;
 sure_fg = np.uint8(sure_fg)
 unknown = cv2.subtract(sure_bg,sure_fg)
-### 7
+### 7: Preliminary labelling of the sure background (green), sure object (yellow) and the unknown region (purple) by a connected components labelling algorithm; 
 ret, markers = cv2.connectedComponents(sure_fg) # Add one to all labels so that sure background is not 0, but 1
-### 8
+### 8: Final labelling obtained using the Watershed algorithm;
 markers = markers +1 # Now, mark the region of unknown with zero
 markers[unknown==255] = 0                
 res = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
@@ -47,7 +47,6 @@ res[markers == -1] = [255] ###dark contours
 ```
 #### Video 3: steps of the implemented Watershed algorithm.
 ![](https://github.com/ddg93/TF_flexfibreAABB/blob/main/watershed.gif)
-
 
 The typical processed frames are shown in Figure 3, where the dimensionless time is reported above each couple of images.
 #### Figure 3: Time-evolution of the orientation of a ring suspended in a viscous shear flow
