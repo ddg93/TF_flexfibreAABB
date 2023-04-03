@@ -20,7 +20,7 @@ The CNNs are trained over a small synthetic data set for each particle, generate
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/training_dataset.png?raw=true)
 
 A simple Computer Vision method based on the Watershed algorithm is developed in Python+OpenCV to perform the image segmentation and isolate the ring withing each video recording of the experiment, as visualized in the Video 3. 
-This is very important to detect the particles, separating them from small bubbles, dust, suspended within the flow as well as, for the side view, to see through the glass wall and the transparent plastic belt.
+#### This is very important to detect the particles, separating them from small bubbles, dust, suspended within the flow as well as, for the side view, to see through the glass wall and the transparent plastic belt.
 ```python
 ### 1: Original grayscale image. Many small bubbles are trapped in the viscous fluid around the object; 
 img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
