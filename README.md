@@ -36,12 +36,12 @@ ret, sure_fg = cv2.threshold(dist_transform,0.7*dist_transform.max(),255,0)
 ### 6
 sure_fg = np.uint8(sure_fg)
 unknown = cv2.subtract(sure_bg,sure_fg)
-# 7
+### 7
 ret, markers = cv2.connectedComponents(sure_fg) # Add one to all labels so that sure background is not 0, but 1
+### 8
 markers = markers +1 # Now, mark the region of unknown with zero
 markers[unknown==255] = 0                
 res = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
-# 8
 markers = cv2.watershed(res,markers)
 res[markers == -1] = [255] ###dark contours
 ```
