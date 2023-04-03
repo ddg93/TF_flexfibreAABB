@@ -46,7 +46,7 @@ res = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
 markers = cv2.watershed(res,markers)
 res[markers == -1] = [255] ###dark contours
 ```
-#### Video 3: steps of the implemented Watershed algorithm.
+#### Video 3: steps of the implemented Watershed algorithm (see the file description for the details).
 ![](https://github.com/ddg93/TF_flexfibreAABB/blob/main/watershed.gif)
 
 The typical processed frames are shown in Figure 3, where the dimensionless time is reported above each couple of images.
