@@ -19,7 +19,37 @@ The CNNs are trained over a small synthetic data set for each particle, generate
 #### Figure 2: training data set made by side and top renderings of a ring with inner radius 0.5 mm and outer radius 2.5 mm. The three components of the particle orientation vector in the flow (n_1), gradient (n_2) and vorticity (n_3) directions are also reported above each corresponding couple of images.
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/training_dataset.png?raw=true)
 
-A simple Computer Vision method based on the Watershed algorithm is developed in Python+OpenCV to perform the image segmentation and isolate the ring withing each video recording of the experiment. The typical processed frames are shown in Figure 3, where the dimensionless time is reported above each couple of images.
+A simple Computer Vision method based on the Watershed algorithm is developed in Python+OpenCV to perform the image segmentation and isolate the ring withing each video recording of the experiment, as visualized in the Video 3.
+```python
+### 1
+img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+### 2
+ret, thresh = cv2.threshold(img,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+### 3
+kernel = np.ones((3,3),np.uint8)
+opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN, kernel,1)           
+sure_bg = cv2.dilate(opening,kernel,iterations=1)
+### 4
+dist_transform = cv2.distanceTransform(opening, cv2.DIST_L2, 3) ###size of mask
+### 5
+ret, sure_fg = cv2.threshold(dist_transform,0.7*dist_transform.max(),255,0)
+### 6
+sure_fg = np.uint8(sure_fg)
+unknown = cv2.subtract(sure_bg,sure_fg)
+# 7
+ret, markers = cv2.connectedComponents(sure_fg) # Add one to all labels so that sure background is not 0, but 1
+markers = markers +1 # Now, mark the region of unknown with zero
+markers[unknown==255] = 0                
+res = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
+# 8
+markers = cv2.watershed(res,markers)
+res[markers == -1] = [255] ###dark contours
+```
+#### Video 3: steps of the implemented Watershed algorithm.
+![](https://github.com/ddg93/TF_flexfibreAABB/blob/main/watershed.gif)
+
+
+The typical processed frames are shown in Figure 3, where the dimensionless time is reported above each couple of images.
 #### Figure 3: Time-evolution of the orientation of a ring suspended in a viscous shear flow
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/time_evolution.png?raw=true)
 
