@@ -90,6 +90,8 @@ def custom_loss(y_true,y_pred):
 ## Build, train and test the CCN on  [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/RegressDISK_multiview.ipynb) in order to measure the time-evolution of the particle orientation during the experiment with the considered ring. 
 
 #### In the end, we are able to estimate the time-evolution of the three components of the particle orientation vector.
+![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/n1n2n3_time_ring.png?raw=true)
+
 
 
 
