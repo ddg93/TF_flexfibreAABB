@@ -79,6 +79,14 @@ output = Dense(3, activation='linear')(dense1)
 model = Model(inputs=[input1, input2], outputs=output)
 ```
 
+The model is compiled with a custom loss function, which calculates the Euclidean norm of the difference between the True and Predicted values of the particle orientation vector.
+```python
+def custom_loss(y_true,y_pred):
+    norm = tf.norm((y_true-y_pred),axis=-1)
+    loss = tf.math.reduce_sum(norm)
+    return loss
+```
+
 ## Build, train and test the CCN on  [Google Colaboratory](https://colab.research.google.com/github/ddg93/TF_flexfibreAABB/blob/main/RegressDISK_multiview.ipynb) in order to measure the time-evolution of the particle orientation during the experiment with the considered ring. 
 
 
