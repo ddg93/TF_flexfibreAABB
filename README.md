@@ -92,6 +92,3 @@ def custom_loss(y_true,y_pred):
 #### In the end, we are able to estimate the time-evolution of the three components of the particle orientation vector.
 ![alt text](https://github.com/ddg93/TF_flexfibreAABB/blob/main/n1n2n3_time_ring.png?raw=true)
 The comparison between the experiments (blue dots) and the theory of Jeffery (black dashed lines) is very good, as long as the equivalent aspect ratio is taken into account (estimated from the experimental period of rotation of the ring).
-
-
-
